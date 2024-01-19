@@ -2,16 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Chef = ({ chef }) => {
-    const { chefName, chefPicture, experienceYears, numOfRecipes, likes } =
+    const { _id, chefName, chefPicture, experienceYears, numOfRecipes, likes } =
         chef;
     return (
         <div
             id="app"
             className="bg-[#EAEAEA] w-128 h-60 rounded shadow-md flex card text-grey-darkest"
         >
-            <div className="w-1/2">
+            <div className="w-1/2 overflow-hidden">
                 <img
-                    className="w-full h-full rounded-l-sm object-cover"
+                    className="w-full h-full rounded-l-sm object-cover hover:scale-125 duration-300"
                     src={chefPicture}
                     alt="Room Image"
                 />
@@ -32,7 +32,7 @@ const Chef = ({ chef }) => {
                     </div>
 
                     <div className="">
-                        <Link to="/">
+                        <Link to={`/chef/${_id}`}>
                             <button className="py-2 px-6 text-xl custom-button hover:tracking-wider duration-300">
                                 View Details
                             </button>
