@@ -2,7 +2,7 @@ import React from "react";
 import LoginOptions from "../LoginOptions";
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const SignUp = () => {
     return (
         <div className="max-w-7xl mx-auto my-10">
             <div className="lg:flex justify-center">
@@ -12,7 +12,7 @@ const Login = () => {
                             className="text-center text-4xl text-[#053225] font-display font-semibold xl:text-5xl
                     xl:text-bold"
                         >
-                            Log in
+                            Sign Up
                         </h2>
                         <div className="mt-12">
                             <form>
@@ -29,24 +29,28 @@ const Login = () => {
                                     />
                                 </div>
                                 <div className="mt-8">
-                                    <div className="flex justify-between items-center">
-                                        <div className="text-sm font-bold text-gray-700 tracking-wide">
-                                            Password
-                                        </div>
-                                        <div>
-                                            <a
-                                                className="text-xs font-display font-semibold text-[#053225]
-                                        cursor-pointer"
-                                            >
-                                                Forgot Password?
-                                            </a>
-                                        </div>
+                                    <div className="text-sm font-bold text-gray-700 tracking-wide">
+                                        Password
                                     </div>
+
                                     <input
                                         className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-[#053225]"
                                         type="password"
                                         name="password"
                                         placeholder="Enter your password"
+                                        required
+                                    />
+                                </div>
+                                <div className="mt-8">
+                                    <div className="text-sm font-bold text-gray-700 tracking-wide">
+                                        Confirm Password
+                                    </div>
+
+                                    <input
+                                        className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-[#053225]"
+                                        type="password"
+                                        name="confirmPassword"
+                                        placeholder="Confirm your password"
                                         required
                                     />
                                 </div>
@@ -56,7 +60,7 @@ const Login = () => {
                                         className="bg-[#053225] text-gray-100 p-4 w-full rounded-bl-2xl rounded-tr-2xl tracking-wide
                                 font-semibold font-display focus:outline-none focus:shadow-outline shadow-lg"
                                     >
-                                        Login
+                                        Signup
                                     </button>
                                 </div>
                             </form>
@@ -68,9 +72,9 @@ const Login = () => {
                             </div>
                             <LoginOptions></LoginOptions>
                             <div className="mt-12 text-sm font-display font-semibold text-gray-700 text-center">
-                                Don't have an account ?{" "}
-                                <Link to='/signup' className="cursor-pointer text-[#053225]">
-                                    Sign up
+                                Already have an account ?{" "}
+                                <Link to='/login' className="cursor-pointer text-[#053225]">
+                                    Login
                                 </Link>
                             </div>
                         </div>
@@ -81,4 +85,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default SignUp;

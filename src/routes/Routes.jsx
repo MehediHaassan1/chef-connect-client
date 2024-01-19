@@ -8,6 +8,7 @@ import App from "../App";
 import ChefDetails from "../components/ChefDetails";
 import NotFound from "../components/NotFound";
 import Chefs from "../components/Chefs/Chefs";
+import SignUp from "../components/SignUp/SignUp";
 
 const router = createBrowserRouter([
     {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
             {
                 path: "login",
                 element: <Login></Login>,
+            },
+            {
+                path: "signup",
+                element: <SignUp></SignUp>,
             },
             {
                 path: "chef/:chefId",
