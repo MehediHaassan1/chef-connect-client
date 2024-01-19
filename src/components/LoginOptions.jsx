@@ -1,6 +1,6 @@
 import React from "react";
-import google from '../assets/google.png'
-import github from '../assets/github.png'
+import google from "../assets/google.png";
+import github from "../assets/github.png";
 
 const LoginOptions = () => {
     return (
@@ -11,7 +11,7 @@ const LoginOptions = () => {
                                 font-semibold font-display focus:outline-none focus:shadow-outline shadow-lg border-2 border-[#053225] flex items-center justify-center gap-3"
                 >
                     <img className="w-8 h-8" src={google} alt="google" />
-                    Login with Google
+                    Google
                 </button>
             </div>
             <div className="mt-10">
@@ -20,7 +20,7 @@ const LoginOptions = () => {
                                 font-semibold font-display focus:outline-none focus:shadow-outline shadow-lg border-2 border-[#053225] flex items-center justify-center gap-3"
                 >
                     <img className="w-8 h-8" src={github} alt="github" />
-                    Login with Github
+                    Github
                 </button>
             </div>
         </div>
