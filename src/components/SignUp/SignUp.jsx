@@ -1,8 +1,55 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import LoginOptions from "../LoginOptions";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { UserContext } from "../../context/AuthContext";
+import toast from "react-hot-toast";
 
 const SignUp = () => {
+    const [error, setError] = useState("");
+
+    const { createUser } = useContext(UserContext);
+    const navigate = useNavigate();
+
+    const handleSingUp = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        const confirmPassword = form.confirmPassword.value;
+
+        setError("");
+        if (password !== confirmPassword) {
+            setError("Password did't match");
+            return;
+        } else if (!/.*[A-Z]/.test(password)) {
+            setError("Password must contain at least 1 uppercase");
+            return;
+        } else if (!/.*[a-z]/.test(password)) {
+            setError("Password must contain at least 1 lowercase");
+            return;
+        } else if (!/.{6,}/.test(password)) {
+            setError("Password must contain at least 6 characters");
+            return;
+        } else if (!/.*[0-9]/.test(password)) {
+            setError("Password must contain at least 1 number");
+            return;
+        } else {
+            createUser(email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    console.log(user);
+                    if (user) {
+                        toast.success("User created Successfully!");
+                        navigate("/");
+                    }
+                })
+                .catch((error) => {
+                    const errorMessage = error.message;
+                    setError(errorMessage);
+                });
+        }
+    };
+
     return (
         <div className="max-w-7xl mx-auto my-10">
             <div className="lg:flex justify-center">
@@ -15,7 +62,7 @@ const SignUp = () => {
                             Sign Up
                         </h2>
                         <div className="mt-12">
-                            <form>
+                            <form onSubmit={handleSingUp}>
                                 <div>
                                     <div className="text-sm font-bold text-gray-700 tracking-wide">
                                         Email Address
@@ -34,7 +81,7 @@ const SignUp = () => {
                                     </div>
 
                                     <input
-                                        className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-[#053225]"
+                                        className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-[#053225] "
                                         type="password"
                                         name="password"
                                         placeholder="Enter your password"
@@ -54,7 +101,10 @@ const SignUp = () => {
                                         required
                                     />
                                 </div>
-                                <div className="mt-10">
+                                <div className="my-4">
+                                    <p className="text-red-600">{error}</p>
+                                </div>
+                                <div className="mt-6">
                                     <button
                                         type="submit"
                                         className="bg-[#053225] text-gray-100 p-4 w-full rounded-bl-2xl rounded-tr-2xl tracking-wide
@@ -73,7 +123,10 @@ const SignUp = () => {
                             <LoginOptions></LoginOptions>
                             <div className="mt-12 text-sm font-display font-semibold text-gray-700 text-center">
                                 Already have an account ?{" "}
-                                <Link to='/login' className="cursor-pointer text-[#053225]">
+                                <Link
+                                    to="/login"
+                                    className="cursor-pointer text-[#053225]"
+                                >
                                     Login
                                 </Link>
                             </div>
