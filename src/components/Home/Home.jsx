@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import heroBanner from "../../assets/images/hero-banner.png";
 import Chefs from "./Chefs";
+import NewsLetter from "./NewsLetter";
 
 const Home = () => {
     
@@ -37,6 +38,7 @@ const Home = () => {
                 </div>
             </div>
             <Chefs></Chefs>
+            <NewsLetter></NewsLetter>
         </div>
     );
 };

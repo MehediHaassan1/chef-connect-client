@@ -20,7 +20,7 @@ const NavigationBar = () => {
         { path: "/contact", pathName: "contact" },
     ];
     return (
-        <div className="max-w-7xl mx-auto flex justify-between items-center px-1 lg:px-0 relative h-20 md:sticky md:top-0 w-full bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 ">
+        <div className="max-w-7xl mx-auto flex justify-between items-center px-1 lg:px-0 relative h-20 md:sticky md:top-0 w-full bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 z-50">
             <div className="md:hidden">
                 <Hamburger
                     toggled={isOpen}
