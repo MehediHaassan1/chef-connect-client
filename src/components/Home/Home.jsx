@@ -3,11 +3,8 @@ import heroBanner from "../../assets/images/hero-banner.png";
 import Chefs from "./Chefs";
 import NewsLetter from "./NewsLetter";
 import Contact from "./Contact";
-import { UserContext } from "../../context/AuthContext";
 
 const Home = () => {
-    const { user } = useContext(UserContext);
-    console.log(user);
     return (
         <div className="min-h-screen bg-[#EAEAEA]">
             <div className="h-screen max-w-7xl mx-auto md:flex md:justify-between md:items-center overflow-hidden">

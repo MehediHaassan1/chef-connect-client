@@ -9,6 +9,7 @@ import ChefDetails from "../components/ChefDetails";
 import NotFound from "../components/NotFound";
 import Chefs from "../components/Chefs/Chefs";
 import SignUp from "../components/SignUp/SignUp";
+import PrivetRoute from "./PrivetRoute";
 
 const router = createBrowserRouter([
     {
@@ -41,7 +42,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "chef/:chefId",
-                element: <ChefDetails></ChefDetails>,
+                element: (
+                    <PrivetRoute>
+                        <ChefDetails></ChefDetails>
+                    </PrivetRoute>
+                ),
                 loader: ({ params }) =>
                     fetch(`http://localhost:5000/chef/${params.chefId}`),
             },

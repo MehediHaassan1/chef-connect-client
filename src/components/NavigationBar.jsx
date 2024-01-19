@@ -1,10 +1,11 @@
 import Hamburger from "hamburger-react";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo.svg";
+import { UserContext } from "../context/AuthContext";
 
 const NavigationBar = () => {
-    const [user, setUser] = useState(false);
+    const { user, loading } = useContext(UserContext);
     const [isOpen, setOpen] = useState(false);
 
     const activeNavStyle = ({ isActive }) => {
@@ -56,36 +57,12 @@ const NavigationBar = () => {
                 </div>
                 <div>
                     {user ? (
-                        <div className="dropdown dropdown-end -z-10">
-                            <div
-                                tabIndex={0}
-                                role="button"
-                                className="btn btn-ghost btn-circle avatar"
-                            >
-                                <div className="w-10 rounded-full">
-                                    <img
-                                        alt="Tailwind CSS Navbar component"
-                                        src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                                    />
-                                </div>
-                            </div>
-                            <ul
-                                tabIndex={0}
-                                className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
-                            >
-                                <li>
-                                    <a className="justify-between">
-                                        Profile
-                                        <span className="badge">New</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a>Settings</a>
-                                </li>
-                                <li>
-                                    <a>Logout</a>
-                                </li>
-                            </ul>
+                        <div className="">
+                            <img
+                                className="w-10 h-10 rounded-full"
+                                alt=""
+                                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                            />
                         </div>
                     ) : (
                         <Link
