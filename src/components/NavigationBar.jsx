@@ -15,6 +15,7 @@ const NavigationBar = () => {
 
     const menus = [
         { path: "/", pathName: "Home" },
+        { path: "/chefs", pathName: "chefs" },
         { path: "/about", pathName: "about" },
         { path: "/blog", pathName: "blog" },
         { path: "/contact", pathName: "contact" },

@@ -5,7 +5,7 @@ import { FaDribbble, FaFacebook, FaInstagram, FaXTwitter } from "react-icons/fa6
 const Footer = () => {
     return (
         <>
-            <section className="bg-gray-800  py-16 ">
+            <section className="bg-gray-800 py-16">
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center text-white text-center">
                     <div className="p-6 md:w-1/4">
                         <img src={logoAlt} alt="logo" />

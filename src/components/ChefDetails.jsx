@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import Recipes from "./Recipes";
+import Recipes from "./Home/Recipes";
 
 const ChefDetails = () => {
     const chefDetails = useLoaderData();
@@ -50,7 +50,7 @@ const ChefDetails = () => {
                     </div>
                 </div>
             </div>
-            <div>
+            <div className="my-10">
                 <h1 className="my-10 text-center text-4xl lg:text-5xl text-pacifico underline">
                     Chef's Recipes
                 </h1>
