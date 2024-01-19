@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import heroBanner from "../../assets/images/hero-banner.png";
+import Chefs from "./Chefs";
 
 const Home = () => {
+    
     return (
         <div className="min-h-screen bg-[#EAEAEA]">
             <div className="h-screen max-w-7xl mx-auto md:flex md:justify-between md:items-center overflow-hidden">
@@ -34,9 +36,7 @@ const Home = () => {
                     />
                 </div>
             </div>
-            {/* <div className="h-screen bg-blue-200">
-                <h1>this is another section</h1>
-            </div> */}
+            <Chefs></Chefs>
         </div>
     );
 };
