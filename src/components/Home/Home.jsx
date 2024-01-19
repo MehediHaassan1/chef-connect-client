@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import heroBanner from "../../assets/images/hero-banner.png";
 import Chefs from "./Chefs";
 import NewsLetter from "./NewsLetter";
+import Contact from "./Contact";
 
 const Home = () => {
     
@@ -38,6 +39,7 @@ const Home = () => {
                 </div>
             </div>
             <Chefs></Chefs>
+            <Contact></Contact>
             <NewsLetter></NewsLetter>
         </div>
     );
