@@ -3,11 +3,12 @@ import ReactStarsRating from "react-awesome-stars-rating";
 import { FaRegHeart } from "react-icons/fa";
 
 const Recipes = ({ recipe }) => {
-    console.log(recipe.rating);
     const { recipeName, ingredients, cookingMethod, rating } = recipe;
     return (
         <div className="border rounded hover:-translate-y-4 duration-300 relative h-96 w-full">
-            <h1 className="text-lg lg:text-3xl p-3 text-pacifico ">{recipeName}</h1>
+            <h1 className="text-lg lg:text-3xl p-3 text-pacifico ">
+                {recipeName}
+            </h1>
             <div className="grid grid-cols-2 gap-x-3 my-2 p-3">
                 {ingredients.map((item, index) => (
                     <p key={index} className="hover:bg-gray-200 p-1">

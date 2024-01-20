@@ -10,6 +10,7 @@ import NotFound from "../components/NotFound";
 import Chefs from "../components/Chefs/Chefs";
 import SignUp from "../components/SignUp/SignUp";
 import PrivetRoute from "./PrivetRoute";
+import ResetPassword from "../components/Login/ResetPassword";
 
 const router = createBrowserRouter([
     {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
             {
                 path: "login",
                 element: <Login></Login>,
+            },
+            {
+                path: "reset-password",
+                element: <ResetPassword></ResetPassword>,
             },
             {
                 path: "signup",

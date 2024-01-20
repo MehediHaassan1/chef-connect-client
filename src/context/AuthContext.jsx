@@ -5,6 +5,7 @@ import {
     onAuthStateChanged,
     signInWithEmailAndPassword,
     signOut,
+    sendPasswordResetEmail,
 } from "firebase/auth";
 import app from "../firebase/firebase.confiq";
 
@@ -21,14 +22,18 @@ const AuthContext = ({ children }) => {
         return createUserWithEmailAndPassword(auth, email, password);
     };
 
-    const logInUser = (email, password) =>{
+    const logInUser = (email, password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
-    }
+    };
 
-    const logOutUser = () =>{
+    const logOutUser = () => {
         return signOut(auth);
-    }
+    };
+
+    const resetPassword = (email) => {
+        return sendPasswordResetEmail(auth, email);
+    };
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -40,7 +45,14 @@ const AuthContext = ({ children }) => {
             unsubscribe();
         };
     }, []);
-    const authInfo = { user, createUser, loading, logInUser, logOutUser};
+    const authInfo = {
+        user,
+        createUser,
+        loading,
+        logInUser,
+        logOutUser,
+        resetPassword,
+    };
     return (
         <UserContext.Provider value={authInfo}>{children}</UserContext.Provider>
     );

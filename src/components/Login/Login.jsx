@@ -66,12 +66,12 @@ const Login = () => {
                                             Password
                                         </div>
                                         <div>
-                                            <a
+                                            <Link to='/reset-password'
                                                 className="text-xs font-display font-semibold text-[#053225]
                                         cursor-pointer"
                                             >
                                                 Forgot Password?
-                                            </a>
+                                            </Link>
                                         </div>
                                     </div>
                                     <input
