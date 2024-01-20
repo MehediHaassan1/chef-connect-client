@@ -6,10 +6,15 @@ import {
     signInWithEmailAndPassword,
     signOut,
     sendPasswordResetEmail,
+    GoogleAuthProvider,
+    signInWithPopup,
+    GithubAuthProvider,
 } from "firebase/auth";
 import app from "../firebase/firebase.confiq";
 
 export const UserContext = createContext(null);
+const googleProvider = new GoogleAuthProvider();
+const githubProvider = new GithubAuthProvider();
 
 const auth = getAuth(app);
 
@@ -35,6 +40,16 @@ const AuthContext = ({ children }) => {
         return sendPasswordResetEmail(auth, email);
     };
 
+    const googleLogIn = () => {
+        setLoading(true);
+        return signInWithPopup(auth, googleProvider);
+    };
+
+    const githubSignIn = () =>{
+        setLoading(true);
+        return signInWithPopup(auth, githubProvider);
+    }
+
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
@@ -52,6 +67,8 @@ const AuthContext = ({ children }) => {
         logInUser,
         logOutUser,
         resetPassword,
+        googleLogIn,
+        githubSignIn,
     };
     return (
         <UserContext.Provider value={authInfo}>{children}</UserContext.Provider>
