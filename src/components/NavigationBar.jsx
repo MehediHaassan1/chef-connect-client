@@ -8,11 +8,17 @@ import toast from "react-hot-toast";
 const NavigationBar = () => {
     const { user, logOutUser } = useContext(UserContext);
     const [isOpen, setOpen] = useState(false);
+    const [optionsOpen, setOptionsOpen] = useState(false);
+    console.log(user);
 
     const activeNavStyle = ({ isActive }) => {
         return {
             color: isActive ? "#053225" : "",
         };
+    };
+
+    const handleUserOptions = () => {
+        setOptionsOpen(!optionsOpen);
     };
 
     const handleLogOut = () => {
@@ -22,6 +28,7 @@ const NavigationBar = () => {
             })
             .catch((error) => {});
     };
+    //
 
     const menus = [
         { path: "/", pathName: "Home" },
@@ -67,14 +74,29 @@ const NavigationBar = () => {
                 <div>
                     {user ? (
                         <div
-                            className="w-10 h-10 rounded-full overflow-hidden"
-                            onClick={handleLogOut}
+                            className="relative cursor-pointer"
+                            onClick={handleUserOptions}
                         >
                             <img
-                                className=""
+                                title={user.displayName || "John Doe"}
+                                className="w-10 h-10 rounded-full"
                                 alt=""
-                                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                                src={
+                                    user.photoURL ||
+                                    "https://img.freepik.com/free-vector/illustration-businessman_53876-5856.jpg?w=740&t=st=1705724506~exp=1705725106~hmac=a583c2e577ed906b92b0dab2aabba11a49900639df857f4801aa12b52c34dd86"
+                                }
                             />
+                            <div
+                                className={`mt-4 flex flex-col absolute bg-slate-400 p-4 rounded ${
+                                    optionsOpen
+                                        ? "opacity-100 h-fit"
+                                        : "opacity-0 h-0 p-0"
+                                } duration-500 z-50 -left-12`}
+                            >
+                                <Link>Profile</Link>
+                                <Link>Settings</Link>
+                                <Link onClick={handleLogOut}>Logout</Link>
+                            </div>
                         </div>
                     ) : (
                         <Link
