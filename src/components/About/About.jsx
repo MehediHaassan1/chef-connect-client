@@ -1,9 +1,10 @@
-import React from 'react';
+import React from "react";
+import CoomingSoon from "../CoomingSoon";
 
 const About = () => {
     return (
         <div>
-            <h1>this is about page</h1>
+            <CoomingSoon />
         </div>
     );
 };

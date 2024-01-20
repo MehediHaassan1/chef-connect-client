@@ -1,9 +1,10 @@
 import React from 'react';
+import CoomingSoon from '../CoomingSoon';
 
 const Blog = () => {
     return (
         <div>
-            <h1>this is blog page</h1>
+             <CoomingSoon />
         </div>
     );
 };
