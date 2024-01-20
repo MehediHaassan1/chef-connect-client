@@ -3,15 +3,24 @@ import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import { UserContext } from "../context/AuthContext";
+import toast from "react-hot-toast";
 
 const NavigationBar = () => {
-    const { user, loading } = useContext(UserContext);
+    const { user, logOutUser } = useContext(UserContext);
     const [isOpen, setOpen] = useState(false);
 
     const activeNavStyle = ({ isActive }) => {
         return {
             color: isActive ? "#053225" : "",
         };
+    };
+
+    const handleLogOut = () => {
+        logOutUser()
+            .then(() => {
+                toast.success("Sign out successful");
+            })
+            .catch((error) => {});
     };
 
     const menus = [
@@ -57,9 +66,12 @@ const NavigationBar = () => {
                 </div>
                 <div>
                     {user ? (
-                        <div className="">
+                        <div
+                            className="w-10 h-10 rounded-full overflow-hidden"
+                            onClick={handleLogOut}
+                        >
                             <img
-                                className="w-10 h-10 rounded-full"
+                                className=""
                                 alt=""
                                 src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
                             />

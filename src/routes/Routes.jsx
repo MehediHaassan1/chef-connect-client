@@ -52,7 +52,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "/chefs",
-                element: <Chefs></Chefs>,
+                element: (
+                    <PrivetRoute>
+                        <Chefs></Chefs>
+                    </PrivetRoute>
+                ),
             },
             {
                 path: "*",
