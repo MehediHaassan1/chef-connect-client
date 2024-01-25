@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Chef from "../Chef";
+import LazyLoad from "react-lazy-load";
+import Loading from "../Loading/Loading";
 
 const Chefs = () => {
     const [chefs, setChefs] = useState([]);
@@ -20,11 +22,13 @@ const Chefs = () => {
             <h1 className="text-center text-4xl lg:text-5xl text-pacifico underline">
                 Best Chef, Best Cook
             </h1>
-            <div className="grid grid-cols-1 gap-4 mt-6 lg:grid-cols-2 lg:gap-10 lg:mt-10 ">
-                {chefs.map((chef) => (
-                    <Chef key={chef._id} chef={chef}></Chef>
-                ))}
-            </div>
+            <LazyLoad height={"100%"} width={"100%"} threshold={0.95}>
+                <div className="grid grid-cols-1 gap-4 mt-6 lg:grid-cols-2 lg:gap-10 lg:mt-10 ">
+                    {chefs.map((chef) => (
+                        <Chef key={chef._id} chef={chef}></Chef>
+                    ))}
+                </div>
+            </LazyLoad>
         </div>
     );
 };
