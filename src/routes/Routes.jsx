@@ -53,7 +53,9 @@ const router = createBrowserRouter([
                     </PrivetRoute>
                 ),
                 loader: ({ params }) =>
-                    fetch(`http://localhost:5000/chef/${params.chefId}`),
+                    fetch(
+                        `https://chef-connect-2bh3.onrender.com/chef/${params.chefId}`
+                    ),
             },
             {
                 path: "/chefs",

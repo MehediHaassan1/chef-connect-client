@@ -9,7 +9,6 @@ const NavigationBar = () => {
     const { user, logOutUser } = useContext(UserContext);
     const [isOpen, setOpen] = useState(false);
     const [optionsOpen, setOptionsOpen] = useState(false);
-    console.log(user);
 
     const activeNavStyle = ({ isActive }) => {
         return {
@@ -26,7 +25,9 @@ const NavigationBar = () => {
             .then(() => {
                 toast.success("Sign out successful");
             })
-            .catch((error) => {});
+            .catch((error) => {
+                console.log(error);
+            });
     };
     //
 

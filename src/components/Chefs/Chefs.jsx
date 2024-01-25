@@ -5,7 +5,7 @@ const Chefs = () => {
     const [chefs, setChefs] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/chefs")
+        fetch("https://chef-connect-2bh3.onrender.com/chefs")
             .then((res) => res.json())
             .then((data) => setChefs(data));
     });

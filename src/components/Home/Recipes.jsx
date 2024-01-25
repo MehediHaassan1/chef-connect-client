@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactStarsRating from "react-awesome-stars-rating";
-import { FaRegHeart } from "react-icons/fa";
+import toast from "react-hot-toast";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
 
 const Recipes = ({ recipe }) => {
     const { recipeName, ingredients, cookingMethod, rating } = recipe;
+
+    const [favorite, setFavorite] = useState(false);
+    const handleFavourite = () => {
+        setFavorite(!favorite);
+        toast.success('Favorite Listed')
+    };
+
     return (
         <div className="border rounded hover:-translate-y-4 duration-300 relative h-96 w-full">
             <h1 className="text-lg lg:text-3xl p-3 text-pacifico ">
@@ -28,7 +36,16 @@ const Recipes = ({ recipe }) => {
                     size={20}
                     isEdit={false}
                 />
-                <FaRegHeart className="w-5 h-5" />
+                <button
+                    onClick={handleFavourite}
+                    disabled={favorite ? true : false}
+                >
+                    {favorite ? (
+                        <FaHeart className="w-5 h-5" />
+                    ) : (
+                        <FaRegHeart className="w-5 h-5" />
+                    )}
+                </button>
             </div>
         </div>
     );

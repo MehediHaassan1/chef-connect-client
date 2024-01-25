@@ -6,7 +6,7 @@ const Chefs = () => {
     const [slicedChefs, setSlicedChefs] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/chefs")
+        fetch("https://chef-connect-2bh3.onrender.com/chefs")
             .then((res) => res.json())
             .then((data) => setSlicedChefs(data));
     });
